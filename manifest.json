@@ -13,14 +13,14 @@
     "categories": ["games", "entertainment", "social", "party"],
     "screenshots": [
         {
-            "src": "https://yourdomain.com/screenshot-mobile.png",
+            "src": "https://spy-fall.github.io/game/screenshot-mobile.png",
             "sizes": "390x844",
             "type": "image/png",
             "platform": "narrow",
             "label": "Spyfall game on mobile"
         },
         {
-            "src": "https://yourdomain.com/screenshot-desktop.png", 
+            "src": "https://spy-fall.github.io/game/screenshot-desktop.png", 
             "sizes": "1920x1080",
             "type": "image/png",
             "platform": "wide",
@@ -35,12 +35,12 @@
             "purpose": "any maskable"
         },
         {
-            "src": "https://yourdomain.com/icon-192.png",
+            "src": "https://spy-fall.github.io/game/icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "https://yourdomain.com/icon-512.png",
+            "src": "https://spy-fall.github.io/game/icon-512.png",
             "sizes": "512x512", 
             "type": "image/png"
         }

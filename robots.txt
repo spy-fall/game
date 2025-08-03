@@ -7,7 +7,7 @@ Allow: /game-data.js
 Allow: /manifest.json
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://spy-fall.github.io/game/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

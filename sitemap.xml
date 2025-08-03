@@ -5,13 +5,13 @@
     
     <!-- Main page -->
     <url>
-        <loc>https://yourdomain.com/</loc>
+        <loc>https://spy-fall.github.io/game/</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <mobile:mobile/>
         <image:image>
-            <image:loc>https://yourdomain.com/og-image.png</image:loc>
+            <image:loc>https://spy-fall.github.io/game/og-image.png</image:loc>
             <image:title>Spyfall Game - Social Deduction Party Game</image:title>
             <image:caption>Play Spyfall online with friends</image:caption>
         </image:image>
@@ -19,7 +19,7 @@
     
     <!-- Game start URL (for deep linking) -->
     <url>
-        <loc>https://yourdomain.com/?action=new-game</loc>
+        <loc>https://spy-fall.github.io/game/?action=new-game</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -28,7 +28,7 @@
     
     <!-- PWA Manifest -->
     <url>
-        <loc>https://yourdomain.com/manifest.json</loc>
+        <loc>https://spy-fall.github.io/game/manifest.json</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>

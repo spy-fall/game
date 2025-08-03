@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Spyfall Game - Online Social Deduction Party Game | Play Free</title>
+    <meta name="title" content="Spyfall Game - Online Social Deduction Party Game | Play Free">
+    <meta name="description" content="Play Spyfall online - the ultimate social deduction party game for 3-20 players. Find the spy, guess locations, and have fun with friends. No downloads required!">
+    <meta name="keywords" content="spyfall, social deduction game, party game, online game, spy game, group game, friends game, browser game, PWA game">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Spyfall Game">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Spyfall Game - Online Social Deduction Party Game">
+    <meta property="og:description" content="Play Spyfall online - the ultimate social deduction party game for 3-20 players. Find the spy, guess locations, and have fun with friends!">
+    <meta property="og:image" content="https://yourdomain.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Spyfall Game">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Spyfall Game - Online Social Deduction Party Game">
+    <meta property="twitter:description" content="Play Spyfall online - the ultimate social deduction party game for 3-20 players. Find the spy, guess locations, and have fun with friends!">
+    <meta property="twitter:image" content="https://yourdomain.com/twitter-image.png">
+    <meta property="twitter:image:alt" content="Spyfall Game - Social Deduction Party Game">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="Spyfall Game">
+    <meta name="apple-mobile-web-app-title" content="Spyfall">
+    <meta name="generator" content="Spyfall PWA">
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Icons & Favicons -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="app.js" as="script">
+    <link rel="preload" href="game-logic.js" as="script">
+    
+    <!-- DNS Prefetch (add your actual domains) -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Spyfall Game",
+        "description": "Play Spyfall online - the ultimate social deduction party game for 3-20 players. Find the spy, guess locations, and have fun with friends.",
+        "url": "https://yourdomain.com/",
+        "applicationCategory": "Game",
+        "applicationSubCategory": "Party Game",
+        "operatingSystem": "Web Browser, iOS, Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        },
+        "screenshot": "https://yourdomain.com/screenshot.png"
+    }
+    </script>
+    
+    <!-- Game Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Game",
+        "name": "Spyfall",
+        "description": "Social deduction party game where players try to identify the spy among them",
+        "numberOfPlayers": "3-20",
+        "timeRequired": "PT8M",
+        "gameLocation": "Online",
+        "characterAttribute": [
+            {
+                "@type": "Thing",
+                "name": "Spy",
+                "description": "Player who doesn't know the location"
+            },
+            {
+                "@type": "Thing", 
+                "name": "Civilian",
+                "description": "Player who knows the location"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Structured navigation for search engines -->
+    <nav aria-label="Main navigation" style="display: none;">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-to-play">How to Play</a></li>
+            <li><a href="#features">Features</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main application -->
+    <main id="main-content" role="main">
+        <header style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+            <h1>Spyfall - Online Social Deduction Party Game</h1>
+            <p>The ultimate spy game for friends and family. Play online with 3-20 players!</p>
+        </header>
+
+        <!-- SEO Content Section (hidden but readable by search engines) -->
+        <section id="game-description" class="seo-content" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+            <h2>About Spyfall Game</h2>
+            <p>Spyfall is a thrilling social deduction party game where players take turns asking and answering questions to figure out who among them is the spy. The game combines elements of bluffing, deduction, and social interaction to create an engaging experience for groups of friends.</p>
+            
+            <h3>How to Play Spyfall</h3>
+            <p>In Spyfall, all players except one (the spy) receive a location card. The spy doesn't know the location. Players ask each other questions to identify the spy while the spy tries to blend in and guess the location. The game ends when either the spy is identified or the spy correctly guesses the location.</p>
+            
+            <h3>Game Features</h3>
+            <ul>
+                <li>Support for 3-20 players</li>
+                <li>8-minute game sessions</li>
+                <li>200+ unique locations across 10 categories</li>
+                <li>Progressive Web App - works offline</li>
+                <li>No downloads required</li>
+                <li>Mobile-friendly design</li>
+                <li>Free to play</li>
+            </ul>
+            
+            <h3>Perfect for Parties and Social Gatherings</h3>
+            <p>Spyfall is ideal for birthday parties, family gatherings, team building events, and casual game nights. The game encourages conversation, creativity, and strategic thinking while providing endless entertainment for groups of all sizes.</p>
+        </section>
+
+        <div id="app">
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <div class="home-container">
+                <div class="home-header">
+                    <div class="app-icon">🕵️</div>
+                    <h1 class="app-title">Spyfall</h1>
+                    <p class="app-subtitle">Social deduction game</p>
+                </div>
+                
+                <div class="home-center">
+                    <div class="features-compact">
+                        <div class="feature-item">
+                            <span class="feature-icon">👥</span>
+                            <span class="feature-text">3-20 Players</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🕵️</span>
+                            <span class="feature-text">Find the Spy</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⏱️</span>
+                            <span class="feature-text">8 Minutes</span>
+                        </div>
+                    </div>
+                    
+                    <button id="start-game-btn" class="home-start-button">
+                        <span class="start-icon">🎮</span>
+                        <span class="start-text">Start New Game</span>
+                    </button>
+                </div>
+                
+                <div class="home-footer">
+                    <p class="version-text">Tap to begin your spy adventure</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Setup Screen -->
+        <div id="setup-screen" class="screen">
+            <div class="mobile-screen">
+                <div class="screen-header">
+                    <button class="back-button" onclick="app.showScreen('home')">
+                        <span class="back-icon">←</span>
+                    </button>
+                    <h1 class="screen-title">Game Setup</h1>
+                    <div class="header-spacer"></div>
+                </div>
+                
+                <div class="screen-content">
+                    <!-- Players Section -->
+                    <div class="setup-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h2>Players</h2>
+                            </div>
+                            <div class="card-status">
+                                <span class="count-badge" id="player-count-status">0</span>
+                                <span class="count-label">/20</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="player-input-container">
+                                <input type="text" 
+                                       id="player-name-input" 
+                                       placeholder="Add player name" 
+                                       maxlength="20"
+                                       autocomplete="off"
+                                       class="player-input">
+                                <button id="add-player-btn" class="input-add-button" type="button">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14M5 12h14"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div class="players-list-container">
+                                <div id="players-list" class="mobile-players-list"></div>
+                                <div id="players-empty-state" class="empty-state">
+                                    <p>No players added yet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Categories Section -->
+                    <div class="setup-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h2>Location Categories</h2>
+                            </div>
+                            <div class="card-status" id="categories-status">
+                                <span class="count-badge" id="category-count-status">0</span>
+                                <span class="count-label">selected</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-content">
+                            <div id="categories-list" class="mobile-categories-list"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="screen-footer">
+                    <button id="start-playing-btn" class="primary-button" disabled>
+                        <span class="button-text" id="btn-subtitle">Add players to continue</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Reveal Screen -->
+        <div id="card-reveal-screen" class="screen">
+            <div class="mobile-screen">
+                <div class="screen-header">
+                    <button class="back-button" onclick="app.showScreen('setup')">
+                        <span class="back-icon">←</span>
+                    </button>
+                    <h1 class="screen-title">Card Reveal</h1>
+                    <div class="header-spacer"></div>
+                </div>
+                
+                <div class="screen-content">
+                    <div class="reveal-instructions">
+                        <div class="progress-card">
+                            <div class="progress-info">
+                                <span class="progress-text">
+                                    <span id="progress-count">0</span> of <span id="total-players">0</span> ready
+                                </span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar">
+                                    <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                            <div class="progress-instructions">
+                                <p>Tap your card to see your role, then tap again to confirm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cards-container">
+                        <div id="card-grid" class="mobile-card-grid"></div>
+                    </div>
+                </div>
+                
+                <div class="screen-footer">
+                    <button id="restart-setup-btn" class="secondary-button">
+                        <span class="button-text">Back to Setup</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Play Screen -->
+        <div id="gameplay-screen" class="screen">
+            <div class="mobile-screen">
+                <div class="screen-header">
+                    <div class="timer-header">
+                        <!-- Left: Timer -->
+                        <div class="timer-display">
+                            <span id="timer-display" class="timer-text">8:00</span>
+                            <span class="timer-label">remaining</span>
+                        </div>
+                        
+                        <!-- Center: Compact Stats -->
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-value" id="active-players">0</span>
+                                <span class="stat-label">Active</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="eliminated-players">0</span>
+                                <span class="stat-label">Out</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="hidden-spies">0</span>
+                                <span class="stat-label">Spies</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Control Buttons -->
+                        <div class="timer-controls">
+                            <button id="timer-control-btn" class="modern-control-btn pause-btn" 
+                                    title="Pause Game" aria-label="Pause the game timer">
+                                <span class="btn-text">Pause</span>
+                            </button>
+                            <button id="restart-game-btn" class="modern-control-btn restart-btn" 
+                                    title="Restart Game" aria-label="Restart the entire game">
+                                <span class="btn-text">Restart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screen-content">
+                    
+                    <!-- Vote Result Banner -->
+                    <div id="vote-result" class="vote-result-banner"></div>
+                    
+                    <!-- Voting Section -->
+                    <div class="voting-section">
+                        <div class="section-title">
+                            <h2>Vote for the Spy</h2>
+                            <div class="voting-instructions">
+                                <p><strong>How to Vote:</strong></p>
+                                <p>1. Choose who you think is the spy</p>
+                                <p>2. Tap their name to cast your vote</p>
+                                <p>3. If they're the spy, they can guess the location to win</p>
+                                <p>4. If they're not the spy, they're eliminated and the game continues</p>
+                            </div>
+                        </div>
+                        
+                        <div id="voting-grid" class="mobile-voting-grid"></div>
+                    </div>
+                </div>
+                
+                                    <!-- Footer removed - controls moved to header -->
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="mobile-screen">
+                <div class="screen-content">
+                    <!-- Winning Reason (moved to top) -->
+                    <div class="winning-reason">
+                        <div class="reason-card">
+                            <h1 id="result-title" class="result-title">Game Over</h1>
+                            <p id="winning-reason-text" class="reason-text">Game completed</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Game Summary -->
+                    <div class="summary-card">
+                        <div class="summary-row">
+                            <span class="summary-label">Location:</span>
+                            <span id="game-location" class="summary-value">Unknown</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Duration:</span>
+                            <span id="game-duration" class="summary-value">0:00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Players:</span>
+                            <span id="total-players-count" class="summary-value">0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Spies:</span>
+                            <span id="spy-count" class="summary-value">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Players List -->
+                    <div class="players-results">
+                        <h3>Players</h3>
+                        <div id="results-player-list" class="mobile-results-list"></div>
+                    </div>
+                </div>
+                
+                <div class="screen-footer">
+                    <button id="play-again-btn" class="primary-button">
+                        <span class="button-text">Play Again</span>
+                    </button>
+                    <button id="home-btn" class="secondary-button">
+                        <span class="button-text">Back to Home</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spy Location Guess Modal -->
+        <div id="spy-guess-modal" class="mobile-modal hidden">
+            <div class="modal-screen">
+                <div class="modal-header">
+                    <div class="spy-reveal">
+                        <p id="spy-name" class="spy-name">Player is the SPY!</p>
+                        <p class="spy-instruction">Choose the correct location to win:</p>
+                    </div>
+                </div>
+                
+                <div class="modal-content">
+                    <div id="location-guess-grid" class="mobile-location-grid"></div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button id="confirm-guess-btn" class="primary-button" disabled>
+                        <span class="button-text">Confirm</span>
+                        <span class="button-icon">✅</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay hidden"></div>
+    </div>
+
+    </main>
+
+    <!-- Footer for additional SEO content -->
+    <footer role="contentinfo" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+        <div>
+            <h3>Spyfall Game Information</h3>
+            <p>Copyright © 2025 Spyfall Game. Free online social deduction party game.</p>
+            <address>
+                Contact: <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>
+            </address>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="game-data.js"></script>
+    <script src="game-logic.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Allow: /styles.css
+Allow: /app.js
+Allow: /game-logic.js
+Allow: /game-data.js
+Allow: /manifest.json
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block unnecessary files
+Disallow: /sw.js
+Disallow: /*.log
+
+# Allow social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: / 

@@ -1,0 +1,83 @@
+{
+    "name": "Spyfall Game - Social Deduction Party Game",
+    "short_name": "Spyfall",
+    "description": "Play Spyfall online - the ultimate social deduction party game for 3-20 players. Find the spy, guess locations, and have fun with friends. No downloads required!",
+    "start_url": "./?utm_source=pwa&utm_medium=homescreen",
+    "display": "standalone",
+    "background_color": "#f8fafc",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "scope": "./",
+    "lang": "en-US",
+    "dir": "ltr",
+    "categories": ["games", "entertainment", "social", "party"],
+    "screenshots": [
+        {
+            "src": "https://yourdomain.com/screenshot-mobile.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "platform": "narrow",
+            "label": "Spyfall game on mobile"
+        },
+        {
+            "src": "https://yourdomain.com/screenshot-desktop.png", 
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "platform": "wide",
+            "label": "Spyfall game on desktop"
+        }
+    ],
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "https://yourdomain.com/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://yourdomain.com/icon-512.png",
+            "sizes": "512x512", 
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Start New Game",
+            "short_name": "New Game",
+            "description": "Start a new Spyfall game immediately",
+            "url": "./?action=new-game",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Game Rules",
+            "short_name": "Rules", 
+            "description": "Learn how to play Spyfall",
+            "url": "./?action=rules",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "handle_links": "preferred",
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    }
+} 

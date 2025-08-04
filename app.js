@@ -32,13 +32,14 @@ class SpyfallApp {
         modal.className = 'install-guide-modal';
         modal.innerHTML = `
             <div class="install-guide-content">
-                <h3>📱 Install Spyfall App</h3>
-                <p>For the best experience, install this app:</p>
+                <button class="install-guide-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                <h3>Install Spyfall App</h3>
+                <p>For the best experience, install this app on your device:</p>
                 <ol>
                     <li>Copy this URL: <code>${window.location.href}</code></li>
                     <li>Open <strong>Safari</strong> browser</li>
                     <li>Paste the URL and visit this page</li>
-                    <li>Tap <strong>Share</strong> → <strong>Add to Home Screen</strong></li>
+                    <li>Tap <strong>Share</strong> then <strong>Add to Home Screen</strong></li>
                 </ol>
                 <div class="install-guide-buttons">
                     <button onclick="navigator.clipboard.writeText('${window.location.href}')">Copy URL</button>
@@ -49,13 +50,47 @@ class SpyfallApp {
         
         // Add to page
         document.body.appendChild(modal);
+    }
+
+    setupIOSInstallButton() {
+        // Detect Apple devices (iPhone, iPad, iPod)
+        const isAppleDevice = /iPhone|iPad|iPod/.test(navigator.userAgent);
+        const installBtn = document.getElementById('ios-install-btn');
         
-        // Auto-remove after 10 seconds
-        setTimeout(() => {
-            if (modal.parentElement) {
-                modal.remove();
-            }
-        }, 10000);
+        if (isAppleDevice && installBtn) {
+            // Show the install button on Apple devices
+            installBtn.style.display = 'flex';
+            
+            // Add click event listener
+            installBtn.addEventListener('click', () => {
+                this.showIOSInstallGuide();
+            });
+        }
+    }
+
+    showIOSInstallGuide() {
+        // Create install guide modal
+        const modal = document.createElement('div');
+        modal.className = 'install-guide-modal';
+        modal.innerHTML = `
+            <div class="install-guide-content">
+                <button class="install-guide-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                <h3>Install Spyfall App</h3>
+                <p>To install this app on your device:</p>
+                <ol>
+                    <li>Tap the <strong>Share</strong> icon at the bottom of Safari</li>
+                    <li>Scroll and tap <strong>"Add to Home Screen"</strong></li>
+                    <li>Tap <strong>"Add"</strong> to confirm</li>
+                </ol>
+                <p><small>The app will appear on your home screen like a native app!</small></p>
+                <div class="install-guide-buttons">
+                    <button onclick="this.parentElement.parentElement.parentElement.remove()">Got it!</button>
+                </div>
+            </div>
+        `;
+        
+        // Add to page
+        document.body.appendChild(modal);
     }
 
     // Screen Management
@@ -102,6 +137,9 @@ class SpyfallApp {
                 this.showScreen('setup');
             });
         }
+
+        // iOS Install Button
+        this.setupIOSInstallButton();
 
         // Setup screen events
         const addPlayerBtn = document.getElementById('add-player-btn');

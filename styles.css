@@ -504,6 +504,40 @@ body {
     font-size: var(--font-size-lg);
 }
 
+/* iOS Install Button */
+.ios-install-button {
+    background: linear-gradient(135deg, #34C759, #30B855);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(52, 199, 89, 0.3);
+    min-height: var(--touch-target);
+    margin: var(--spacing-md) auto 0;
+    width: auto;
+    max-width: 200px;
+}
+
+.ios-install-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
+}
+
+.ios-install-button:active {
+    transform: translateY(0);
+}
+
+.install-text {
+    font-size: var(--font-size-base);
+}
+
 .home-footer {
     text-align: center;
     padding-bottom: var(--spacing-md);
@@ -2956,6 +2990,7 @@ input:focus,
     box-shadow: var(--shadow-lg);
     border: 2px solid var(--primary-color);
     text-align: left;
+    position: relative;
 }
 
 .install-guide-content h3 {
@@ -3020,6 +3055,31 @@ input:focus,
 .install-guide-buttons button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+/* Close button for install guide modal */
+.install-guide-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.install-guide-close:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .install-guide-buttons button:last-child:hover {

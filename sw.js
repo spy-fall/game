@@ -136,7 +136,7 @@ self.addEventListener('push', event => {
         
         const options = {
             body: data.body,
-            icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕵️</text></svg>",
+            icon: "icon.png",
             vibrate: [100, 50, 100],
             actions: [
                 {

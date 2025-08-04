@@ -405,12 +405,25 @@ body {
 .home-header {
     text-align: center;
     padding-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .app-icon {
     font-size: 64px;
     margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-icon img {
+    width: 120px;
+    height: 120px;
     display: block;
+    margin: 0 auto;
 }
 
 .app-title {
@@ -462,6 +475,15 @@ body {
     font-size: 24px;
     width: 32px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-icon img {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
 }
 
 .feature-text {
@@ -576,6 +598,17 @@ body {
 .card-icon {
     font-size: var(--font-size-base);
     opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-icon img {
+    width: 48px;
+    height: 48px;
+    opacity: 0.8;
+    display: block;
 }
 
 .card-title h2 {
@@ -2178,6 +2211,7 @@ body {
     align-items: center;
     justify-content: space-between;
     box-shadow: var(--shadow-sm);
+    min-height: 60px;
 }
 
 .results-player-card.spy {
@@ -2709,6 +2743,27 @@ input:focus,
     margin-bottom: var(--spacing-lg);
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
     animation: glassmorphismPulse 2s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transition-icon img {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    animation: glassmorphismPulse 2s ease-in-out infinite;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Inline spy icon for player status */
+.spy-icon {
+    width: 0.5em;
+    height: 0.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.25em;
 }
 
 .transition-title {

@@ -481,7 +481,7 @@ class SpyfallApp {
             if (player.role === 'spy') {
                 cardState = 'spy revealed';
                 cardContent = `
-                    <div class="card-icon">🕵️</div>
+                    <div class="card-icon"><img src="icon.png" alt="Spy" /></div>
                     <h3 class="card-title">SPY</h3>
                     <p class="card-subtitle">Find the location!</p>
                 `;
@@ -551,7 +551,7 @@ class SpyfallApp {
         
         overlay.innerHTML = `
             <div class="transition-content">
-                <div class="transition-icon">🕵️‍♂️</div>
+                <div class="transition-icon"><img src="icon.png" alt="Spy" /></div>
                 <div class="transition-title">All Players Ready!</div>
                 <div class="transition-subtitle">The investigation begins...</div>
                 <div class="transition-timer">

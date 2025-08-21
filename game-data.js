@@ -2,6 +2,23 @@
 const GAME_DATA = {
     categories: [
         {
+            id: 'original-locations',
+            emoji: '',
+            name: 'Original Locations',
+            locations: [
+                'Airport Terminal', 'Shopping Mall', 'Amusement Park', 'University Campus', 'Zoo',
+                'Farm', 'High School', 'Movie Theater', 'Fire Station', 'Office Building',
+                'Airport Control Tower', 'Bus Station', 'Harbor', 'Space Shuttle Launch Site', 'Train Station',
+                'Nightclub', 'Concert Venue', 'Airplane', 'Art Museum', 'Bank',
+                'Stadium', 'Beach', 'Brewery', 'Theater', 'Casino',
+                'Cemetery', 'Circus Tent', 'Construction Site', 'Corporate Party', 'Gas Station',
+                'Golden Gate Bridge', 'Hospital', 'Hotel', 'Jail', 'Library',
+                'Park', 'Mechanic Shop', 'Military Base', 'Train', 'Pirate Ship',
+                'Police Station', 'Post-Office', 'Restaurant', 'Retirement Home', 'Ski Resort',
+                'Space Station', 'Submarine', 'Subway', 'Vineyard'
+            ]
+        },
+        {
             id: 'home-daily-life',
             emoji: '',
             name: 'Home & Daily Life',

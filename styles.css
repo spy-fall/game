@@ -647,6 +647,55 @@ body {
     padding: var(--spacing-md) var(--spacing-lg);
 }
 
+/* Language Selector */
+.language-selector {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    transition: all 0.3s ease;
+    background: var(--bg-primary);
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.language-option:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.language-option input[type="radio"] {
+    display: none;
+}
+
+.language-option input[type="radio"]:checked + .language-label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.language-option:has(input[type="radio"]:checked) {
+    border-color: var(--primary-color);
+    background: var(--primary-color-light);
+}
+
+.language-label {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
 /* Input Components - Integrated Design */
 .player-input-container {
     position: relative;
@@ -2540,6 +2589,7 @@ body {
     .btn-text {
         font-size: 11px;
     }
+
 }
 
 /* Very small screens */
@@ -2564,6 +2614,7 @@ body {
     .btn-text {
         font-size: 10px;
     }
+
 }
 
 /* Desktop Design Adjustments */
@@ -3195,3 +3246,4 @@ img {
     loading: lazy;
     height: auto;
 }
+

@@ -286,7 +286,12 @@ class SpyfallGame {
             return false; // Only spies can guess
         }
 
-        const isCorrect = guessedLocation === this.currentLocation;
+        // Check if the guessed location matches the current location
+        // Handle both English and Persian versions
+        const currentLocationName = GAME_DATA.getLocationName(this.currentLocation);
+        const isCorrect = guessedLocation === this.currentLocation || 
+                         guessedLocation === currentLocationName;
+        
         this.eliminatePlayer(playerId, isCorrect);
         
         return isCorrect;

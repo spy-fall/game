@@ -8,6 +8,9 @@ class SpyfallApp {
     }
 
     init() {
+        // Initialize language from localStorage
+        GAME_DATA.getLanguage();
+        
         this.bindEvents();
         this.showScreen('home');
         this.detectAndGuideInstallation();
@@ -149,6 +152,15 @@ class SpyfallApp {
             });
         }
 
+        // Language selection events
+        const languageRadios = document.querySelectorAll('input[name="language"]');
+        languageRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                GAME_DATA.setLanguage(e.target.value);
+                this.updateSetupScreen();
+            });
+        });
+
         const playerNameInput = document.getElementById('player-name-input');
         
         if (playerNameInput) {
@@ -273,6 +285,9 @@ class SpyfallApp {
 
     // Setup Screen
     updateSetupScreen() {
+        // Update language selection
+        this.updateLanguageSelection();
+        
         // Update player count and status
         const playerCountStatus = document.getElementById('player-count-status');
         if (playerCountStatus) {
@@ -299,6 +314,17 @@ class SpyfallApp {
         
         // Show/hide empty states
         this.updateEmptyStates();
+    }
+
+    updateLanguageSelection() {
+        const currentLang = GAME_DATA.getLanguage();
+        const langEn = document.getElementById('lang-en');
+        const langFa = document.getElementById('lang-fa');
+        
+        if (langEn && langFa) {
+            langEn.checked = currentLang === 'en';
+            langFa.checked = currentLang === 'fa';
+        }
     }
 
     updatePlayersList() {
@@ -489,7 +515,7 @@ class SpyfallApp {
                 cardState = 'civilian revealed';
                 cardContent = `
                     <div class="card-icon">📍</div>
-                    <h3 class="card-title">${window.game.currentLocation}</h3>
+                    <h3 class="card-title">${GAME_DATA.getLocationName(window.game.currentLocation)}</h3>
                     <p class="card-subtitle">Find the spies!</p>
                 `;
             }
@@ -808,7 +834,7 @@ class SpyfallApp {
         if (locationsGrid) {
             locationsGrid.innerHTML = locations.map(location => `
                 <div class="location-option" onclick="app.selectLocation(${JSON.stringify(location).replace(/"/g, '&quot;')})">
-                    <span>${location}</span>
+                    <span>${GAME_DATA.getLocationName(location)}</span>
                 </div>
             `).join('');
         }
@@ -892,6 +918,9 @@ class SpyfallApp {
 
     // Results Screen
     updateResultsScreen() {
+        // Ensure language is loaded from localStorage when results screen is shown
+        GAME_DATA.getLanguage();
+        
         const resultTitle = document.getElementById('result-title');
         
         if (resultTitle) {
@@ -931,7 +960,10 @@ class SpyfallApp {
     updateGameDetails() {
         const gameLocationEl = document.getElementById('game-location');
         if (gameLocationEl) {
-            gameLocationEl.textContent = window.game.currentLocation || 'Unknown';
+            // Ensure language is loaded from localStorage
+            const currentLang = GAME_DATA.getLanguage();
+            const locationName = GAME_DATA.getLocationName(window.game.currentLocation);
+            gameLocationEl.textContent = locationName || 'Unknown';
         }
         
         // Add other game details as needed

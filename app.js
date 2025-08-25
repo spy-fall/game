@@ -56,35 +56,75 @@ class SpyfallApp {
     }
 
     setupIOSInstallButton() {
-        // Detect Apple devices (iPhone, iPad, iPod)
-        const isAppleDevice = /iPhone|iPad|iPod/.test(navigator.userAgent);
+        // Detect device type
+        const userAgent = navigator.userAgent;
+        const isAppleDevice = /iPhone|iPad|iPod/.test(userAgent);
+        const isAndroidDevice = /Android/.test(userAgent);
+        const isDesktop = !isAppleDevice && !isAndroidDevice;
+        
         const installBtn = document.getElementById('ios-install-btn');
         
-        if (isAppleDevice && installBtn) {
-            // Show the install button on Apple devices
+        if (installBtn) {
+            // Show the install button for all devices
             installBtn.style.display = 'flex';
+            
+            // Update button text based on device
+            const installText = installBtn.querySelector('.install-text');
+            installText.textContent = 'Install App';
             
             // Add click event listener
             installBtn.addEventListener('click', () => {
-                this.showIOSInstallGuide();
+                this.showInstallGuide(isAppleDevice, isAndroidDevice, isDesktop);
             });
         }
     }
 
-    showIOSInstallGuide() {
-        // Create install guide modal
+    showInstallGuide(isAppleDevice, isAndroidDevice, isDesktop) {
+        // Create install guide modal with device-specific instructions
         const modal = document.createElement('div');
         modal.className = 'install-guide-modal';
+        
+        let instructions = '';
+        let title = '';
+        
+        if (isAppleDevice) {
+            title = 'Install on iOS (iPhone/iPad)';
+            instructions = `
+                <ol>
+                    <li>Open the app in <strong>Safari</strong> (not Chrome or other browsers)</li>
+                    <li>Tap the <strong>Share button</strong> (square with arrow pointing up) at the bottom of Safari</li>
+                    <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                    <li>Tap <strong>"Add"</strong> to confirm</li>
+                    <li>The app will appear on your home screen like a native app</li>
+                </ol>
+            `;
+        } else if (isAndroidDevice) {
+            title = 'Install on Android';
+            instructions = `
+                <ol>
+                    <li>Open the app in <strong>Chrome</strong></li>
+                    <li>Tap the <strong>menu button</strong> (⋮) in the top-right corner</li>
+                    <li>Select <strong>"Add to Home screen"</strong></li>
+                    <li>Confirm the installation</li>
+                </ol>
+            `;
+        } else {
+            title = 'Install on Desktop (Chrome/Edge)';
+            instructions = `
+                <ol>
+                    <li>Look for the <strong>install icon</strong> in the address bar (usually looks like a download symbol)</li>
+                    <li>Click <strong>"Install Spyfall"</strong></li>
+                    <li>The app will open in a dedicated window</li>
+                </ol>
+            `;
+        }
+        
         modal.innerHTML = `
             <div class="install-guide-content">
                 <button class="install-guide-close" onclick="this.parentElement.parentElement.remove()">×</button>
-                <h3>Install Spyfall App</h3>
+                <h3>${title}</h3>
                 <p>To install this app on your device:</p>
-                <ol>
-                    <li>Tap the <strong>Share</strong> icon at the bottom of Safari</li>
-                    <li>Scroll and tap <strong>"Add to Home Screen"</strong></li>
-                    <li>Tap <strong>"Add"</strong> to confirm</li>
-                </ol>
+                ${instructions}
                 <p><small>The app will appear on your home screen like a native app!</small></p>
                 <div class="install-guide-buttons">
                     <button onclick="this.parentElement.parentElement.parentElement.remove()">Got it!</button>
@@ -141,7 +181,7 @@ class SpyfallApp {
             });
         }
 
-        // iOS Install Button
+        // Install Button for all devices
         this.setupIOSInstallButton();
 
         // Setup screen events

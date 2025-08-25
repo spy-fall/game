@@ -150,10 +150,8 @@ class SpyfallGame {
 
             // Check if all players have finished
             if (this.allPlayersFinished()) {
-                // Start the game timer after a short delay
-                setTimeout(() => {
-                    this.startTimer();
-                }, 1000);
+                // Don't start timer automatically - let players control it
+                // Timer will start when they click the Start button
             }
         }
 
@@ -191,6 +189,28 @@ class SpyfallGame {
                 return;
             }
         }, 1000);
+        
+        // Start continuous display updates
+        this.startDisplayUpdates();
+    }
+    
+    startDisplayUpdates() {
+        // Update display every second while timer is running
+        this.displayUpdateInterval = setInterval(() => {
+            if (this.isTimerRunning) {
+                // Trigger display update in the UI
+                if (window.app && window.app.updateTimerDisplay) {
+                    window.app.updateTimerDisplay();
+                }
+            }
+        }, 1000);
+    }
+    
+    stopDisplayUpdates() {
+        if (this.displayUpdateInterval) {
+            clearInterval(this.displayUpdateInterval);
+            this.displayUpdateInterval = null;
+        }
     }
 
     pauseTimer() {
@@ -199,6 +219,7 @@ class SpyfallGame {
             this.gameTimer = null;
         }
         this.isTimerRunning = false;
+        this.stopDisplayUpdates();
     }
 
     resumeTimer() {
@@ -213,6 +234,7 @@ class SpyfallGame {
             this.gameTimer = null;
         }
         this.isTimerRunning = false;
+        this.stopDisplayUpdates();
     }
 
     formatTime(seconds) {

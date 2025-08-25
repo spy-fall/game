@@ -1763,6 +1763,24 @@ body {
     font-weight: 600;
 }
 
+/* Start Button - Green for starting the game */
+.start-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.start-btn:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.start-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
 /* Pause Button - High visibility for critical action */
 .pause-btn {
     background: linear-gradient(135deg, #ef4444, #dc2626);
@@ -1779,6 +1797,24 @@ body {
 .pause-btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+/* Resume Button - Blue for resuming the game */
+.resume-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resume-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.resume-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
 }
 
 /* Restart Button - Light gray style */

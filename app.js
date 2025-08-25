@@ -678,7 +678,7 @@ class SpyfallApp {
 
     // Gameplay Screen
     updateGameplayScreen() {
-        this.startGameTimer();
+        this.updateTimerDisplay();
         this.updateGameplayStats();
         this.updateVotingGrid();
         this.updateTimerControls();
@@ -697,49 +697,49 @@ class SpyfallApp {
                 timerBtn.title = 'Resume Game';
                 timerBtn.setAttribute('aria-label', 'Resume the game timer');
                 timerBtn.className = 'modern-control-btn resume-btn';
+                
+                // If timer hasn't been started yet, show Start instead of Resume
+                if (!window.game.gameStartTime) {
+                    timerBtn.innerHTML = '<span class="btn-text">Start</span>';
+                    timerBtn.title = 'Start Game';
+                    timerBtn.setAttribute('aria-label', 'Start the game timer');
+                    timerBtn.className = 'modern-control-btn start-btn';
+                }
             }
         }
     }
 
-    startGameTimer() {
+    updateTimerDisplay() {
         const timerDisplay = document.getElementById('timer-display');
         const timerRing = document.querySelector('.timer-ring-circle');
         
-        const updateTimer = () => {
-            if (timerDisplay) {
-                timerDisplay.textContent = window.game.formatTime(window.game.timeRemaining);
-                
-                // Change color based on time remaining
-                if (window.game.timeRemaining <= 30) {
-                    timerDisplay.classList.add('timer-critical');
-                } else {
-                    timerDisplay.classList.remove('timer-critical');
-                }
-            }
+        if (timerDisplay) {
+            timerDisplay.textContent = window.game.formatTime(window.game.timeRemaining);
             
-            if (timerRing) {
-                // Update timer ring
-                const percentage = (window.game.timeRemaining / GAME_DATA.constants.GAME_DURATION) * 100;
-                const circumference = 2 * Math.PI * 45;
-                const offset = circumference - (percentage / 100) * circumference;
-                timerRing.style.strokeDashoffset = offset;
-                
-                // Change color based on time remaining
-                if (window.game.timeRemaining <= 30) {
-                    timerRing.style.stroke = '#ef4444';
-                } else if (window.game.timeRemaining <= 60) {
-                    timerRing.style.stroke = '#f97316';
-                } else {
-                    timerRing.style.stroke = '#3b82f6';
-                }
+            // Change color based on time remaining
+            if (window.game.timeRemaining <= 30) {
+                timerDisplay.classList.add('timer-critical');
+            } else {
+                timerDisplay.classList.remove('timer-critical');
             }
-        };
-
-        // Update immediately
-        updateTimer();
+        }
         
-        // Continue timer updates
-        setTimeout(() => this.startGameTimer(), 1000);
+        if (timerRing) {
+            // Update timer ring
+            const percentage = (window.game.timeRemaining / GAME_DATA.constants.GAME_DURATION) * 100;
+            const circumference = 2 * Math.PI * 45;
+            const offset = circumference - (percentage / 100) * circumference;
+            timerRing.style.strokeDashoffset = offset;
+            
+            // Change color based on time remaining
+            if (window.game.timeRemaining <= 30) {
+                timerRing.style.stroke = '#ef4444';
+            } else if (window.game.timeRemaining <= 60) {
+                timerRing.style.stroke = '#f97316';
+            } else {
+                timerRing.style.stroke = '#3b82f6';
+            }
+        }
     }
 
     updateGameplayStats() {
@@ -763,7 +763,12 @@ class SpyfallApp {
         if (window.game.isTimerRunning) {
             window.game.pauseTimer();
         } else {
-            window.game.resumeTimer();
+            // If timer hasn't been started yet, start it for the first time
+            if (!window.game.gameStartTime) {
+                window.game.startTimer();
+            } else {
+                window.game.resumeTimer();
+            }
         }
         this.updateTimerControls();
     }

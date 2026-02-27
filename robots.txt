@@ -1,27 +1,16 @@
 User-agent: *
 Allow: /
-Allow: /styles.css
-Allow: /app.js
-Allow: /game-logic.js
-Allow: /game-data.js
-Allow: /manifest.json
+Disallow: /sw.js
+Disallow: /game-data.js
+Disallow: /manifest.json
 
-# Sitemap location
 Sitemap: https://spy-fall.github.io/game/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Block unnecessary files
-Disallow: /sw.js
-Disallow: /*.log
-
-# Allow social media crawlers
-User-agent: facebookexternalhit/*
+User-agent: facebookexternalhit
 Allow: /
 
 User-agent: Twitterbot
 Allow: /
 
 User-agent: LinkedInBot
-Allow: / 
+Allow: /
